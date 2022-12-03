@@ -1,5 +1,5 @@
 # EMPIRE SPORTS
 
-EMPIRE SPORTS is a website that shows the product catalog of gadget product sold by CGI. This website is intentionally for my educational purpose to learn HTML, CSS and JavaScript in Web Development course in my university.
+Empire Sports is a website that sells sports goods and equipment at affordable prices. This website is for my educational purposes to learn HTML, CSS and JavaScript courses in Web Development at my university.
 
 [Visit here to see the website.](https://empire-sports.vercel.app)
