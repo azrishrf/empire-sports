@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Empire Sports</title>
+        <link rel="stylesheet" type="text/css" href="css/style-homepage.css" />
+        <link
+            rel="shortcut icon"
+            href="images/website-icon.png"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <!-- header -->
+        <div class="header">
+            <a href="index.html"
+                ><img
+                    src="images/logo.jpg"
+                    alt="Logo business"
+                    width="130"
+                    height="70"
+            /></a>
+            <div class="search-box">
+                <input id="search" type="text" placeholder="    Search" />
+                <i class="bi bi-search search-icon"></i>
+            </div>
+            <div>
+                <button class="bi bi-person-fill account-icon">
+                    &nbsp LOGIN
+                </button>
+                <i class="bi bi-heart-fill heart-icon"></i>
+                <i class="bi bi-cart-fill cart-icon"></i>
+            </div>
+        </div>
+
+        <!--navbar-->
+        <div class="navbar">
+            <ul>
+                <a href="category-running.html"><li>RUNNING</li></a>
+                <a href="category-sneakers.html"><li>SNEAKERS</li></a>
+                <a href="category-clothing.html"><li>CLOTHING</li></a>
+                <a href="category-sandals.html"><li>SANDALS</li></a>
+                <a href="category-basketball.html"><li>BASKETBALL</li></a>
+            </ul>
+        </div>
+
+        <!-- promotion -->
+        <div class="promotion">
+            <h4>EXTRA 30% OFF WITH MIN 2 ITEMS WITH CODE "30FASHIONSALE"</h4>
+        </div>
+
+        <!-- top banner -->
+        <div class="top-banner">
+            <img src="images/top banner new.png" alt="Top banner" />
+            <button class="button" href="shop.html">SHOP NOW</button>
+        </div>
+
+        <!-- services -->
+        <div class="services">
+            <div class="services-flex">
+                <img src="images/delivery.png" width="110" height="84" />
+                <p class="features"><b>FREE DELIVERY</b></p>
+                <p class="description">
+                    Free shipping on all local <br />
+                    orders above RM 250
+                </p>
+            </div>
+
+            <div class="services-flex">
+                <img src="images/payment.png" width="90" height="84" />
+                <p class="features"><b>SECURE PAYMENT</b></p>
+                <p class="description">
+                    Your payment details are securely encrypted from start till
+                    finish
+                </p>
+            </div>
+            <div class="services-flex">
+                <img src="images/return.png" width="90" height="84" />
+                <p class="features"><b>RETURN POLICY </b></p>
+                <p class="description">
+                    Every delivery error can be <br />
+                    returned free of charge
+                </p>
+            </div>
+            <div class="authentication">
+                <img src="images/authentication.png" width="70" height="84" />
+                <p class="features"><b>100% AUTHENTICITY</b></p>
+                <p class="description">
+                    We verify and authenticate all products through expertise
+                    and numerous inspections
+                </p>
+            </div>
+        </div>
+
+        <!-- Top picks -->
+        <div class="top-picks">
+            <h2>TOP PICKS</h2>
+            <p>
+                A selection of shoes that is a favorite of every shoe enthusiast
+                and also our customers. <br />
+                Curated daily from brands such as adidas, Yeezy, Nike, Jordan,
+                Adidas and more.
+            </p>
+            <div class="flex">
+                <div class="lists">
+                    <img
+                        src="images/top picks/NIKE ZOOM FLY X OFF-WHITE THE 10.png"
+                    />
+                    <br />
+                    <p class="shoes-name">NIKE ZOOM FLY X OFF-WHITE THE 10</p>
+
+                    <p class="price-new">RM 5,500.00 &nbsp</p>
+                    <p class="price-old"><strike>RM 6,000.00</strike></p>
+                </div>
+                <div class="lists">
+                    <img src="images/top picks/bred toe.png" />
+                    <br />
+                    <p class="shoes-name">AIR JORDAN 1 LOW 'BRED TOE'</p>
+
+                    <p class="price-new">RM 1,250.00 &nbsp</p>
+                    <p class="price-old"><strike>RM 1,550.00</strike></p>
+                </div>
+                <div class="lists">
+                    <img src="images/top picks/yeezy.png" />
+                    <br />
+                    <p class="shoes-name">
+                        ADIDAS YEEZY BOOST 350 V2 'BONE / PURE OAT'
+                    </p>
+
+                    <p class="price-new">RM 1,560.00 &nbsp</p>
+                    <p class="price-old"><strike>RM 1,765.00</strike></p>
+                </div>
+                <div class="lists">
+                    <img src="images/top picks/pandan.png" />
+                    <br />
+                    <p class="shoes-name">
+                        NIKE DUNK LOW RETRO 'PANDA' / 'BLACK WHITE'
+                    </p>
+
+                    <p class="price-new">RM 999.00 &nbsp</p>
+                    <p class="price-old"><strike>RM 1,100.00</strike></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- middle banner -->
+        <div class="middle-banner">
+            <div class="slideshow-container">
+                <img
+                    src="images/basketball banner.png"
+                    class="slideshow fade"
+                />
+                <img src="images/running banner.png" class="slideshow fade" />
+                <img src="images/supreme banner.png" class="slideshow fade" />
+            </div>
+
+            <script>
+                let slideIndex = 0;
+                showSlides();
+
+                function showSlides() {
+                    let i;
+                    let slides = document.getElementsByClassName("slideshow");
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > slides.length) {
+                        slideIndex = 1;
+                    }
+                    slides[slideIndex - 1].style.display = "block";
+                    setTimeout(showSlides, 2000); // Change image every 2 seconds
+                }
+            </script>
+        </div>
+
+        <!-- people review layout -->
+        <div class="review">
+            <h2>PEOPLE REVIEW</h2>
+            <p class="review-description">
+                Various reviews that are satisfied with the products and
+                services <br />
+                we provide throughout our business.
+            </p>
+            <div class="flex">
+                <div class="box">
+                    <img src="images/yousaf.jpg" /> <br />
+                    <p class="customer-name"><b>Yousaf Iqbal</b></p>
+                    <div class="star-icon">
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                    </div>
+                    <p>
+                        If you’re looking for high quality genuine sneakers, do
+                        check them out~ Attentive, Responsive and Authentic!
+                    </p>
+                </div>
+                <div class="box">
+                    <img src="images/khairul aming.jpg" /> <br />
+                    <p class="customer-name"><b>Khairul Aming</b></p>
+                    <div class="star-icon">
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                    </div>
+                    <p>
+                        The best shoe store I have ever bought shoes from. The
+                        service provided is the best. It's hard not to go back.
+                    </p>
+                </div>
+                <div class="box">
+                    <img src="images/ryan.jpg" /> <br />
+                    <p class="customer-name"><b>Ryan Bakery</b></p>
+                    <div class="star-icon">
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                        <i class="bi bi-star-fill star-icon"></i>
+                    </div>
+                    <p>
+                        Ordered some sneakers products and it got delivered in
+                        only two days. Package secured nicely.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- brand layout -->
+        <div class="brand">
+            <img src="images/brand.png" alt="Brands" />
+        </div>
+
+        <!-- foooter -->
+        <div class="footer">
+            <div class="flex">
+                <div class="shop-info">
+                    <a href="index.html"
+                        ><img src="images/logo.jpg" alt="Logo business"
+                    /></a>
+                    <br />
+                    <button class="bi bi-telephone-fill">
+                        &nbsp +60156721632
+                    </button>
+                    <br />
+                    <button class="bi bi-geo-alt-fill">
+                        &nbsp Lot 23, SU 3, Saujana Utama, 47000 Sungai Buloh,
+                        Selangor
+                    </button>
+                    <br />
+                    <button class="bi bi-envelope-fill">
+                        &nbsp myempiresports@gmail.com
+                    </button>
+                </div>
+                <div class="categories">
+                    <h3>CATEGORIES</h3>
+                    <ul>
+                        <a href="category-running.html"><li>Running</li></a>
+                        <a href="category-sneakers.html"><li>Sneakers</li></a>
+                        <a href="category-clothing.html"><li>Clothing</li></a>
+                        <a href="category-sandals.html"><li>Sandals</li></a>
+                        <a href="category-basketball.html"
+                            ><li>Basketball</li></a
+                        >
+                    </ul>
+                </div>
+                <div class="account">
+                    <h3>ACCOUNT</h3>
+                    <ul>
+                        <li>My Account</li>
+                        <li>Checkout</li>
+                        <li>Wishlist</li>
+                        <li>Orders Tracking</li>
+                        <li>FAQ</li>
+                    </ul>
+                </div>
+                <div class="followus">
+                    <h3>FOLLOW US</h3>
+                    <a
+                        href="https://www.facebook.com/myempiresports/"
+                        target="_blank"
+                        ><img src="images/Facebook.png"
+                    /></a>
+                    <a
+                        href="https://www.tiktok.com/@empiresports.my?_t=8X8HlpE81dC&_r=1"
+                        target="_blank"
+                        ><img src="images/Tiktok.png"
+                    /></a>
+                    <a
+                        href="https://www.instagram.com/empiresports.my/?igshid=1glx2uqqvl1ck"
+                        target="_blank"
+                        ><img src="images/Instagram.png"
+                    /></a>
+                    <a
+                        href="https://www.youtube.com/channel/UCxHD2vqErBAl1lJabnTEPHg"
+                        target="_blank"
+                        ><img src="images/Youtube.png"
+                    /></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- copyright -->
+        <div class="copyright">
+            <p>Copyright © 2022 Empire Sports. All rights reserved.</p>
+        </div>
+    </body>
+</html>
