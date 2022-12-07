@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login | Empire Sports</title>
-        <link rel="stylesheet" type="text/css" href="css/style-login.css" />
+        <link rel="stylesheet" type="text/css" href="css/style-signup.css" />
         <link
             rel="shortcut icon"
             href="images/website-icon.png"
@@ -48,25 +48,42 @@
 
         <!-- login -->
         <div class="login">
-            <h2>LOGIN</h2>
+            <h2>SIGN UP</h2>
             <form>
+                <!-- email -->
                 <label for="email" class="label-email"
                     ><b>Email Address</b>
                 </label>
                 <input type="text" id="email" name="email" />
+                <!-- first name -->
+                <label for="fname" class="label-fname"
+                    ><b>First Name</b>
+                </label>
+                <input type="text" name="fname" id="fname" />
+                <!-- last name -->
+                <label for="lname" class="label-lname"><b>Last Name</b> </label>
+                <input type="text" id="lname" name="lname" />
+                <!-- date of birth -->
+                <label for="date-of-birth" class="label-date-of-birth"
+                    ><b>Date of Birth</b>
+                </label>
+                <input type="date" id="date-of-birth" name="date-of-birth" />
+                <!-- password -->
                 <label for="password" class="label-password"
                     ><b>Password</b>
                 </label>
-                <input type="password" name="password" id="password" />
+                <input type="password" id="password" name="password" />
+                <!-- agreement -->
                 <p class="agreement">
-                    By logging in, you agree to Empire Sports’s
+                    By creating an account, you agree to Empire Sports’s
                     <u>Privacy Policy</u> and <u>Terms of Use</u>
                 </p>
-                <input type="submit" id="submit" value="LOGIN" />
+                <!-- submit button -->
+                <input type="submit" id="submit" value="SUBMIT" />
             </form>
-            <p class="option">Don’t have an account?</p>
-            <a href="signup.html" class="signup"
-                ><u> <b>Sign Up</b> </u></a
+            <p class="option">Already an member?</p>
+            <a href="login.html" class="link-login"
+                ><u> <b>Login</b> </u></a
             >
         </div>
 
