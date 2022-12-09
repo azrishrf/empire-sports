@@ -66,6 +66,7 @@
     transform: scale(1.9);
 }
 .cart-icon {
+    color: black;
     font-size: 22px;
     margin-right: 25px;
     cursor: pointer;
