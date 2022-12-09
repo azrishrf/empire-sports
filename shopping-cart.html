@@ -62,14 +62,14 @@
         <!-- cart -->
         <div class="cart">
             <div class="cart-details">
-                <table>
+                <table class="cart-table">
                     <tr>
                         <th class="row1">PRODUCT</th>
                         <th class="row1">SIZE</th>
                         <th class="row1">QUANTITY</th>
                         <th class="row1">SUBTOTAL</th>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td class="row2-a">
                             <img
                                 src="images/Running/ADIDAS ULTRABOOST 22 MEN'S RUNNING SHOES BLUE.jpg"
@@ -83,7 +83,6 @@
                                     >
                                 </p>
                                 <p class="category">Running</p>
-                                <p class="colour">Blue</p>
                                 <i class="bi bi-trash-fill icon-trash"></i>
                             </div>
                         </td>
@@ -109,8 +108,8 @@
                             </div>
                         </td>
                         <td class="row2-b"><b>RM185.00</b></td>
-                    </tr>
-                    <tr>
+                    </tr> -->
+                    <!-- <tr>
                         <td class="row2-a">
                             <img
                                 src="images/Running/ADIDAS ULTRABOOST 22 MEN'S RUNNING SHOES BLUE.jpg"
@@ -124,7 +123,6 @@
                                     >
                                 </p>
                                 <p class="category">Running</p>
-                                <p class="colour">Blue</p>
                                 <i class="bi bi-trash-fill icon-trash"></i>
                             </div>
                         </td>
@@ -150,8 +148,8 @@
                             </div>
                         </td>
                         <td class="row2-b"><b>RM185.00</b></td>
-                    </tr>
-                    <tr>
+                    </tr> -->
+                    <!-- <tr>
                         <td class="row2-a">
                             <img
                                 src="images/Running/ADIDAS ULTRABOOST 22 MEN'S RUNNING SHOES BLUE.jpg"
@@ -165,7 +163,6 @@
                                     >
                                 </p>
                                 <p class="category">Running</p>
-                                <p class="colour">Blue</p>
                                 <i class="bi bi-trash-fill icon-trash"></i>
                             </div>
                         </td>
@@ -191,52 +188,11 @@
                             </div>
                         </td>
                         <td class="row2-b"><b>RM185.00</b></td>
-                    </tr>
-                    <tr>
-                        <td class="row2-a">
-                            <img
-                                src="images/Running/ADIDAS ULTRABOOST 22 MEN'S RUNNING SHOES BLUE.jpg"
-                                width="150px"
-                            />
-                            <div class="detail">
-                                <p class="name">
-                                    <b
-                                        >ADIDAS ULTRABOOST 22 MEN'S RUNNING
-                                        SHOES BLUE</b
-                                    >
-                                </p>
-                                <p class="category">Running</p>
-                                <p class="colour">Blue</p>
-                                <i class="bi bi-trash-fill icon-trash"></i>
-                            </div>
-                        </td>
-                        <td class="row2-b">8.5</td>
-                        <td class="row2-b">
-                            <div class="quantity-box">
-                                <button
-                                    class="bi bi-dash dash-button"
-                                    onclick="decrease()"
-                                ></button>
-                                <input
-                                    type="text"
-                                    name="num-quantity"
-                                    id="num-quantity"
-                                    class="box"
-                                    value="1"
-                                    readonly
-                                />
-                                <button
-                                    class="bi bi-plus-lg plus-button"
-                                    onclick="increase()"
-                                ></button>
-                            </div>
-                        </td>
-                        <td class="row2-b"><b>RM185.00</b></td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
             <div class="summary-checkout">
-                <div class="summary">
+                <!-- <div class="summary">
                     <h4>SUMMARY</h4>
                     <div class="subtotal">
                         <p>Subtotal</p>
@@ -256,7 +212,7 @@
                         <i class="bi bi-basket3-fill icon"></i>
                         <p class="text">&nbsp; CHECKOUT</p>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -334,28 +290,6 @@
             <p>Copyright © 2022 Empire Sports. All rights reserved.</p>
         </div>
 
-        <script>
-            // increase or decrease quantity item
-            let quantity = 1;
-
-            function increase() {
-                if (quantity == 10) {
-                    alert(
-                        "You are not allowed to select more than 10 quantities"
-                    );
-                    return;
-                }
-                quantity += 1;
-                document.querySelector(".box").value = quantity;
-            }
-
-            function decrease() {
-                if (quantity == 0) {
-                    return;
-                }
-                quantity -= 1;
-                document.querySelector(".box").value = quantity;
-            }
-        </script>
+        <script src="js/shopping-cart.js"></script>
     </body>
 </html>
