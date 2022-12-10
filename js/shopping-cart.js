@@ -9,48 +9,101 @@ function increase(price, id) {
         return;
     }
     quantity += 1;
+    let theproduct = JSON.parse(window.localStorage.getItem("cartlist")).filter(
+        (product) => product.productId === id
+    )[0];
+    theproduct.productQuantity = quantity;
 
     let discount = 0;
-    if ((totalproduct) => 5 && totalproduct <= 10) {
-        discount = quantity * price * 0.05;
-    } else if (totalproduct > 10) {
-        discount = quantity * price * 0.15;
+
+    let newcartlist = JSON.parse(
+        window.localStorage.getItem("cartlist")
+    ).filter((product) => product.productId !== id);
+
+    newcartlist = [...newcartlist, theproduct];
+    window.localStorage.setItem("cartlist", JSON.stringify(newcartlist));
+
+    let subtotal = 0;
+    let totalquantity = 0;
+    newcartlist.forEach((product) => {
+        subtotal += product.productQuantity * product.productPrice;
+        totalquantity += product.productQuantity;
+    });
+
+    if (totalquantity >= 5 && totalquantity <= 10) {
+        discount = subtotal * 0.05;
+    } else if (totalquantity > 10) {
+        discount = subtotal * 0.15;
     }
+
+    let shippingfee = 0;
+    if (subtotal < 100) {
+        shippingfee = 10;
+    }
+
     document.querySelector("#num-quantity-" + id).value = quantity;
     document.querySelector("#productSubtotalCart-" + id).textContent =
         "RM" + quantity * price;
     document.querySelector("#productSubtotalSummary").textContent =
-        "RM" + quantity * price;
+        "RM" + subtotal;
     document.querySelector("#discount").textContent = "RM" + discount;
     document.querySelector("#totalprice").textContent =
-        "RM" + (quantity * price - discount);
+        "RM" + (subtotal - discount + shippingfee);
 }
 
 function decrease(price, id) {
     let quantity = parseInt(
         document.querySelector("#num-quantity-" + id).value
     );
-    if (quantity == 0) {
+    if (quantity == 1) {
+        deleteProduct(id);
         return;
     }
     quantity -= 1;
+    let theproduct = JSON.parse(window.localStorage.getItem("cartlist")).filter(
+        (product) => product.productId === id
+    )[0];
+    theproduct.productQuantity = quantity;
 
     let discount = 0;
-    if ((totalproduct) => 5 && totalproduct <= 10) {
-        discount = quantity * price * 0.05;
-    } else if (totalproduct > 10) {
-        discount = quantity * price * 0.15;
+
+    let newcartlist = JSON.parse(
+        window.localStorage.getItem("cartlist")
+    ).filter((product) => product.productId !== id);
+
+    newcartlist = [...newcartlist, theproduct];
+    window.localStorage.setItem("cartlist", JSON.stringify(newcartlist));
+
+    let subtotal = 0;
+    let totalquantity = 0;
+    newcartlist.forEach((product) => {
+        subtotal += product.productQuantity * product.productPrice;
+        totalquantity += product.productQuantity;
+    });
+
+    if (totalquantity >= 5 && totalquantity <= 10) {
+        discount = subtotal * 0.05;
+    } else if (totalquantity > 10) {
+        discount = subtotal * 0.15;
     }
+
+    let shippingfee = 0;
+    if (subtotal < 100) {
+        shippingfee = 10;
+    }
+
     document.querySelector("#num-quantity-" + id).value = quantity;
     document.querySelector("#productSubtotalCart-" + id).textContent =
         "RM" + quantity * price;
     document.querySelector("#productSubtotalSummary").textContent =
-        "RM" + quantity * price;
+        "RM" + subtotal;
     document.querySelector("#discount").textContent = "RM" + discount;
+    document.querySelector("#shipping").textContent = shippingfee;
     document.querySelector("#totalprice").textContent =
-        "RM" + (quantity * price - discount);
+        "RM" + (subtotal - discount + shippingfee);
 }
 
+// adding products into table from localStorage
 const containerCartTable = document.querySelector(".cart-table");
 const containerSummaryCheckout = document.querySelector(".summary-checkout");
 let cartlist = [];
@@ -76,7 +129,7 @@ if (cartlist) {
                         >
                     </p>
                     <p class="category">${product.productCategory}</p>
-                    <i class="bi bi-trash-fill icon-trash"></i>
+                    <i class="bi bi-trash-fill icon-trash" onclick="deleteProduct('${product.productId}');"></i>
                 </div>
             </td>
             <td class="row2-b">${product.productSize}</td>
@@ -108,11 +161,16 @@ if (cartlist) {
     });
 
     let discount = 0;
-    if ((totalproduct) => 5 && totalproduct <= 10) {
+    if (totalproduct >= 5 && totalproduct <= 10) {
         discount = subtotalprice * 0.05;
     } else if (totalproduct > 10) {
         discount = subtotalprice * 0.15;
     }
+    let shippingfee = 0;
+    if (totalproduct < 100) {
+        shippingfee = 10;
+    }
+
     containerSummaryCheckout.innerHTML += `
     <div class="summary">
         <h4>SUMMARY</h4>
@@ -122,7 +180,7 @@ if (cartlist) {
         </div>
         <div class="shipping">
             <p>Shipping Fee</p>
-            <p>Free</p>
+            <p id="shipping">${shippingfee}</p>
         </div>
         <div class="shipping">
             <p>Discount</p>
@@ -140,4 +198,14 @@ if (cartlist) {
         </a>
     </div>
     `;
+}
+
+function deleteProduct(productId) {
+    let newcartlist = JSON.parse(
+        window.localStorage.getItem("cartlist")
+    ).filter((product) => product.productId !== productId);
+
+    window.localStorage.setItem("cartlist", JSON.stringify(newcartlist));
+
+    window.location.href = "shopping-cart.html";
 }
