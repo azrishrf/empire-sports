@@ -43,32 +43,59 @@
         </div>
 
         <!-- login -->
-        <div class="login">
+        <div class="signup">
             <h2>SIGN UP</h2>
-            <form>
+            <!-- error statemnent -->
+            <p class="error" id="error"></p>
+            <form id="form" name="register-form">
                 <!-- email -->
                 <label for="email" class="label-email"
                     ><b>Email Address</b>
                 </label>
                 <input type="text" id="email" name="email" />
+                <div id="email-msg" class="msg"></div>
                 <!-- first name -->
                 <label for="fname" class="label-fname"
                     ><b>First Name</b>
                 </label>
                 <input type="text" name="fname" id="fname" />
+                <div id="fname-msg" class="msg"></div>
                 <!-- last name -->
                 <label for="lname" class="label-lname"><b>Last Name</b> </label>
                 <input type="text" id="lname" name="lname" />
+                <div id="lname-msg" class="msg"></div>
+                <!-- phone num -->
+                <label for="phoneNum" class="label-phoneNum"
+                    ><b>Phone Number</b>
+                </label>
+                <input type="number" id="phoneNum" name="phoneNum" />
+                <div id="phoneNum-msg" class="msg"></div>
                 <!-- date of birth -->
                 <label for="date-of-birth" class="label-date-of-birth"
                     ><b>Date of Birth</b>
                 </label>
                 <input type="date" id="date-of-birth" name="date-of-birth" />
+                <div id="dof-msg" class="msg"></div>
                 <!-- password -->
                 <label for="password" class="label-password"
                     ><b>Password</b>
                 </label>
                 <input type="password" id="password" name="password" />
+                <div id="password-msg" class="msg"></div>
+                <p class="pass-req">
+                    Minimum 8 characters, 1 uppercase letter, 1 lowercase letter
+                    and one number
+                </p>
+                <!-- confirm password -->
+                <label for="confirmpassword" class="label-confirmpassword"
+                    ><b>Confirm Password</b>
+                </label>
+                <input
+                    type="password"
+                    id="confirmpassword"
+                    name="confirmpassword"
+                />
+                <div id="confirmpassword-msg" class="msg"></div>
                 <!-- agreement -->
                 <p class="agreement">
                     By creating an account, you agree to Empire Sports’s
