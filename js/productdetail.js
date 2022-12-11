@@ -1,6 +1,5 @@
 // increase or decrease quantity item
 let quantity = 1;
-
 function increase() {
     if (quantity == 10) {
         alert("You are not allowed to select more than 10 quantities");
@@ -67,8 +66,9 @@ function openReview() {
 
 let size = "";
 
-function setSize(shoesize) {
-    size = shoesize;
+// category shoes
+function setShoesSize(shoesSize) {
+    size = shoesSize;
 
     document.querySelector("#size5").style.backgroundColor = "white";
     document.querySelector("#size5").style.color = "black";
@@ -91,6 +91,28 @@ function setSize(shoesize) {
     document.querySelector("#size" + size).style.border = "1px solid #9f0000";
 }
 
+// category cloth
+function setClothSize(clothSize) {
+    size = clothSize;
+    document.querySelector("#sizeS").style.backgroundColor = "white";
+    document.querySelector("#sizeS").style.color = "black";
+    document.querySelector("#sizeS").style.border = "1px solid #929292";
+    document.querySelector("#sizeM").style.backgroundColor = "white";
+    document.querySelector("#sizeM").style.color = "black";
+    document.querySelector("#sizeM").style.border = "1px solid #929292";
+    document.querySelector("#sizeL").style.backgroundColor = "white";
+    document.querySelector("#sizeL").style.color = "black";
+    document.querySelector("#sizeL").style.border = "1px solid #929292";
+    document.querySelector("#sizeXL").style.backgroundColor = "white";
+    document.querySelector("#sizeXL").style.color = "black";
+    document.querySelector("#sizeXL").style.border = "1px solid #929292";
+
+    document.querySelector("#size" + size).style.backgroundColor = "#9f0000";
+    document.querySelector("#size" + size).style.color = "white";
+    document.querySelector("#size" + size).style.border = "1px solid #9f0000";
+}
+
+// Add product into localStorage after click add to cart button
 function addtocart(productname, productimg, productcategory, productprice) {
     alert(
         "Successfully added " +

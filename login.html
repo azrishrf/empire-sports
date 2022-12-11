@@ -23,11 +23,15 @@
                     height="70"
             /></a>
             <div>
-                <button class="bi bi-person-fill account-icon">
-                    &nbsp LOGIN
-                </button>
+                <a href="login.html" class="account-icon">
+                    <i class="bi bi-person-fill icon"></i>
+                    <p class="text">&nbsp LOGIN</p>
+                </a>
+
                 <i class="bi bi-heart-fill heart-icon"></i>
-                <i class="bi bi-cart-fill cart-icon"></i>
+                <a href="shopping-cart.html"
+                    ><i class="bi bi-cart-fill cart-icon"></i
+                ></a>
             </div>
         </div>
 
@@ -45,15 +49,19 @@
         <!-- login -->
         <div class="login">
             <h2>LOGIN</h2>
-            <form>
+            <form id="form" name="login-form" onsubmit="login()">
+                <!-- email -->
                 <label for="email" class="label-email"
                     ><b>Email Address</b>
                 </label>
                 <input type="text" id="email" name="email" />
+                <div id="email-msg" class="msg"></div>
+                <!-- password -->
                 <label for="password" class="label-password"
                     ><b>Password</b>
                 </label>
                 <input type="password" name="password" id="password" />
+                <div id="password-msg" class="msg"></div>
                 <p class="agreement">
                     By logging in, you agree to Empire Sports’s
                     <u>Privacy Policy</u> and <u>Terms of Use</u>
@@ -139,5 +147,7 @@
         <div class="copyright">
             <p>Copyright © 2022 Empire Sports. All rights reserved.</p>
         </div>
+
+        <script src="js/login.js"></script>
     </body>
 </html>

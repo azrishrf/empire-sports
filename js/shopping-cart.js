@@ -1,5 +1,4 @@
-// increase or decrease quantity item
-
+// increase quantity item
 function increase(price, id) {
     let quantity = parseInt(
         document.querySelector("#num-quantity-" + id).value
@@ -43,14 +42,18 @@ function increase(price, id) {
 
     document.querySelector("#num-quantity-" + id).value = quantity;
     document.querySelector("#productSubtotalCart-" + id).textContent =
-        "RM" + quantity * price;
+        "RM" + (quantity * price).toFixed(2);
     document.querySelector("#productSubtotalSummary").textContent =
-        "RM" + subtotal;
-    document.querySelector("#discount").textContent = "RM" + discount;
+        "RM" + subtotal.toFixed(2);
+    document.querySelector("#discount").textContent =
+        "RM" + discount.toFixed(2);
+    document.querySelector("#shipping").textContent =
+        "RM" + shippingfee.toFixed(2);
     document.querySelector("#totalprice").textContent =
-        "RM" + (subtotal - discount + shippingfee);
+        "RM" + (subtotal - discount + shippingfee).toFixed(2);
 }
 
+// Decrease quantity item
 function decrease(price, id) {
     let quantity = parseInt(
         document.querySelector("#num-quantity-" + id).value
@@ -94,16 +97,18 @@ function decrease(price, id) {
 
     document.querySelector("#num-quantity-" + id).value = quantity;
     document.querySelector("#productSubtotalCart-" + id).textContent =
-        "RM" + quantity * price;
+        "RM" + (quantity * price).toFixed(2);
     document.querySelector("#productSubtotalSummary").textContent =
-        "RM" + subtotal;
-    document.querySelector("#discount").textContent = "RM" + discount;
-    document.querySelector("#shipping").textContent = shippingfee;
+        "RM" + subtotal.toFixed(2);
+    document.querySelector("#discount").textContent =
+        "RM" + discount.toFixed(2);
+    document.querySelector("#shipping").textContent =
+        "RM" + shippingfee.toFixed(2);
     document.querySelector("#totalprice").textContent =
-        "RM" + (subtotal - discount + shippingfee);
+        "RM" + (subtotal - discount + shippingfee).toFixed(2);
 }
 
-// adding products into table from localStorage
+// Adding products into table from localStorage
 const containerCartTable = document.querySelector(".cart-table");
 const containerSummaryCheckout = document.querySelector(".summary-checkout");
 let cartlist = [];
@@ -120,7 +125,7 @@ if (cartlist) {
             <td class="row2-a">
                 <img
                     src="${product.productImg}"
-                    width="150px"
+                    width="130px"
                 />
                 <div class="detail">
                     <p class="name">
@@ -128,8 +133,11 @@ if (cartlist) {
                             >${product.productName}</b
                         >
                     </p>
+                    <p class="stock">IN STOCK</p>
                     <p class="category">${product.productCategory}</p>
-                    <i class="bi bi-trash-fill icon-trash" onclick="deleteProduct('${product.productId}');"></i>
+                    <i class="bi bi-trash-fill icon-trash" onclick="deleteProduct('${
+                        product.productId
+                    }');"></i>
                 </div>
             </td>
             <td class="row2-b">${product.productSize}</td>
@@ -137,7 +145,9 @@ if (cartlist) {
                 <div class="quantity-box">
                     <button
                         class="bi bi-dash dash-button"
-                        onclick="decrease(${product.productPrice}, '${product.productId}')"
+                        onclick="decrease(${product.productPrice}, '${
+            product.productId
+        }')"
                     ></button>
                     <input
                         type="text"
@@ -149,50 +159,59 @@ if (cartlist) {
                     />
                     <button
                         class="bi bi-plus-lg plus-button"
-                        onclick="increase(${product.productPrice}, '${product.productId}')"
+                        onclick="increase(${product.productPrice}, '${
+            product.productId
+        }')"
                     ></button>
                 </div>
             </td>
-            <td class="row2-b"><b id="productSubtotalCart-${product.productId}">RM${product.productSubtotal}</b></td>
+            <td class="row2-b"><b id="productSubtotalCart-${
+                product.productId
+            }">RM${product.productSubtotal.toFixed(2)}</b></td>
         </tr>
         `;
         subtotalprice += product.productSubtotal;
         totalproduct += product.productQuantity;
     });
-
+    // Create discount
     let discount = 0;
     if (totalproduct >= 5 && totalproduct <= 10) {
         discount = subtotalprice * 0.05;
     } else if (totalproduct > 10) {
         discount = subtotalprice * 0.15;
     }
+
+    // Create shipping fee
     let shippingfee = 0;
-    if (totalproduct < 100) {
+    if (subtotalprice < 100) {
         shippingfee = 10;
     }
-
     containerSummaryCheckout.innerHTML += `
     <div class="summary">
         <h4>SUMMARY</h4>
         <div class="subtotal">
             <p>Subtotal</p>
-            <p id="productSubtotalSummary">RM${subtotalprice}</p>
+            <p id="productSubtotalSummary">RM${subtotalprice.toFixed(2)}</p>
         </div>
         <div class="shipping">
             <p>Shipping Fee</p>
-            <p id="shipping">${shippingfee}</p>
+            <p id="shipping">RM${shippingfee.toFixed(2)}</p>
         </div>
         <div class="shipping">
             <p>Discount</p>
-            <p id="discount">${discount}</p>
+            <p id="discount">RM${discount.toFixed(2)}</p>
         </div>
         <div class="total">
             <p><b>Estimated Total Price</b></p>
-            <p><b id="totalprice">RM${subtotalprice - discount}</b></p>
+            <p><b id="totalprice">RM${(
+                subtotalprice +
+                shippingfee -
+                discount
+            ).toFixed(2)}</b></p>
         </div>
     </div>
     <div class="checkout">
-        <a href="checkout.html" class="checkout-button">
+        <a href="" class="checkout-button">
             <i class="bi bi-basket3-fill icon"></i>
             <p class="text">&nbsp; CHECKOUT</p>
         </a>
@@ -200,6 +219,7 @@ if (cartlist) {
     `;
 }
 
+// Delete product from localStorage and table
 function deleteProduct(productId) {
     let newcartlist = JSON.parse(
         window.localStorage.getItem("cartlist")

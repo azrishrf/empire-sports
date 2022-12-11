@@ -27,9 +27,11 @@
                     height="70"
             /></a>
             <div>
-                <button class="bi bi-person-fill account-icon">
-                    &nbsp LOGIN
-                </button>
+                <a href="login.html" class="account-icon">
+                    <i class="bi bi-person-fill icon"></i>
+                    <p class="text">&nbsp LOGIN</p>
+                </a>
+
                 <i class="bi bi-heart-fill heart-icon"></i>
                 <a href="shopping-cart.html"
                     ><i class="bi bi-cart-fill cart-icon"></i
@@ -50,7 +52,7 @@
 
         <!-- breadcrumbs -->
         <div class="breadcrumbs">
-            <p>Home > Shoes > Running > Stussy DSM London Tee Black 2</p>
+            <p>Home > Clothing > Stussy DSM London Tee Black 2</p>
         </div>
 
         <!-- product details -->
@@ -86,10 +88,10 @@
                 <p class="stock">IN STOCK</p>
                 <p class="uk-size">CHOOSE UK SIZE IN STOCK</p>
                 <div class="sizes">
-                    <button>S</button>
-                    <button>M</button>
-                    <button>L</button>
-                    <button>XL</button>
+                    <button id="sizeS" onclick="setClothSize('S')">S</button>
+                    <button id="sizeM" onclick="setClothSize('M')">M</button>
+                    <button id="sizeL" onclick="setClothSize('L')">L</button>
+                    <button id="sizeXL" onclick="setClothSize('XL')">XL</button>
                 </div>
                 <p class="quantity">QUANTITY</p>
                 <div class="quantity-box">
@@ -110,7 +112,12 @@
                         onclick="increase()"
                     ></button>
                 </div>
-                <button class="cart">ADD TO CART</button>
+                <button
+                    class="cart"
+                    onclick="addtocart('STÜSSY DSM LONDON TEE BLACK', 'images/Clothing/STÜSSY DSM LONDON TEE BLACK.png', 'Clothing', 230.00)"
+                >
+                    ADD TO CART
+                </button>
                 <button
                     class="bi bi-heart wishlist-item"
                     id="wishlist-item"
@@ -288,97 +295,6 @@
             <p>Copyright © 2022 Empire Sports. All rights reserved.</p>
         </div>
 
-        <script>
-            // increase or decrease quantity item
-            let quantity = 1;
-
-            function increase() {
-                if (quantity == 10) {
-                    alert(
-                        "You are not allowed to select more than 10 quantities"
-                    );
-                    return;
-                }
-                quantity += 1;
-                document.querySelector(".box").value = quantity;
-            }
-
-            function decrease() {
-                if (quantity == 0) {
-                    return;
-                }
-                quantity -= 1;
-                document.querySelector(".box").value = quantity;
-            }
-
-            // wishlist toggle
-            function toggleHeart() {
-                document
-                    .querySelector("#wishlist-item")
-                    .classList.toggle("bi-heart");
-                document
-                    .querySelector("#wishlist-item")
-                    .classList.toggle("bi-heart-fill");
-            }
-
-            // change main image
-            function changeMainImage(imglink) {
-                document.querySelector("img.image-big").src = imglink;
-            }
-
-            // switch information in page product detail
-            let whatOpen = "description";
-
-            function openDescription() {
-                document.querySelector(".description-detail").style.display =
-                    "block";
-                document.querySelector(
-                    ".shoes-information-detail"
-                ).style.display = "none";
-                document.querySelector(".review").style.display = "none";
-                whatOpen = "description";
-                document.querySelector(".review-button").style.backgroundColor =
-                    "#c4c4c4";
-                document.querySelector(".detail-button").style.backgroundColor =
-                    "#c4c4c4";
-                document.querySelector(
-                    ".description-button"
-                ).style.backgroundColor = "#9f0000";
-            }
-
-            function openInformation() {
-                document.querySelector(".description-detail").style.display =
-                    "none";
-                document.querySelector(
-                    ".shoes-information-detail"
-                ).style.display = "block";
-                document.querySelector(".review").style.display = "none";
-                whatOpen = "information";
-                document.querySelector(
-                    ".description-button"
-                ).style.backgroundColor = "#c4c4c4";
-                document.querySelector(".review-button").style.backgroundColor =
-                    "#c4c4c4";
-                document.querySelector(".detail-button").style.backgroundColor =
-                    "#9f0000";
-            }
-
-            function openReview() {
-                document.querySelector(".description-detail").style.display =
-                    "none";
-                document.querySelector(
-                    ".shoes-information-detail"
-                ).style.display = "none";
-                document.querySelector(".review").style.display = "block";
-                whatOpen = "review";
-                document.querySelector(
-                    ".description-button"
-                ).style.backgroundColor = "#c4c4c4";
-                document.querySelector(".detail-button").style.backgroundColor =
-                    "#c4c4c4";
-                document.querySelector(".review-button").style.backgroundColor =
-                    "#9f0000";
-            }
-        </script>
+        <script src="js/productdetail.js"></script>
     </body>
 </html>
